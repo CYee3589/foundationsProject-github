@@ -57,7 +57,7 @@ std::list<int> getNthPermutation(std::vector<int> alphabet, int n){
         permutation(temp, array, finalArraySize, i, 0, alphabet, z, n);
     }
     
-    //
+    // Push back data from
     for (int j = 0; j < finalArraySize; j++) {
         stuff.push_back(array[j]);
     }

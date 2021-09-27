@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		851345AC26FC107000858B1B /* DFA_Examples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 851345AA26FC107000858B1B /* DFA_Examples.cpp */; };
 		8573A47926EEAC9E00091050 /* permutations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8573A47726EEAC9E00091050 /* permutations.cpp */; };
+		8573A47C26F380BD00091050 /* DFA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8573A47A26F380BD00091050 /* DFA.cpp */; };
 		85E2293926E6AD6C0091B411 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85E2293826E6AD6C0091B411 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -24,8 +26,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		851345AA26FC107000858B1B /* DFA_Examples.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DFA_Examples.cpp; sourceTree = "<group>"; };
+		851345AB26FC107000858B1B /* DFA_Examples.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DFA_Examples.hpp; sourceTree = "<group>"; };
 		8573A47726EEAC9E00091050 /* permutations.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = permutations.cpp; sourceTree = "<group>"; };
 		8573A47826EEAC9E00091050 /* permutations.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = permutations.hpp; sourceTree = "<group>"; };
+		8573A47A26F380BD00091050 /* DFA.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DFA.cpp; sourceTree = "<group>"; };
+		8573A47B26F380BD00091050 /* DFA.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DFA.hpp; sourceTree = "<group>"; };
 		85E2293526E6AD6C0091B411 /* foundationsProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = foundationsProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E2293826E6AD6C0091B411 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +69,10 @@
 				85E2293826E6AD6C0091B411 /* main.cpp */,
 				8573A47726EEAC9E00091050 /* permutations.cpp */,
 				8573A47826EEAC9E00091050 /* permutations.hpp */,
+				8573A47A26F380BD00091050 /* DFA.cpp */,
+				8573A47B26F380BD00091050 /* DFA.hpp */,
+				851345AA26FC107000858B1B /* DFA_Examples.cpp */,
+				851345AB26FC107000858B1B /* DFA_Examples.hpp */,
 			);
 			path = foundationsProject;
 			sourceTree = "<group>";
@@ -93,7 +103,7 @@
 		85E2292D26E6AD6C0091B411 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					85E2293426E6AD6C0091B411 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -123,7 +133,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8573A47C26F380BD00091050 /* DFA.cpp in Sources */,
 				8573A47926EEAC9E00091050 /* permutations.cpp in Sources */,
+				851345AC26FC107000858B1B /* DFA_Examples.cpp in Sources */,
 				85E2293926E6AD6C0091B411 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +257,7 @@
 		85E2293D26E6AD6C0091B411 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -253,6 +266,7 @@
 		85E2293E26E6AD6C0091B411 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
