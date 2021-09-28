@@ -48,7 +48,7 @@ bool acceptNoStringISA(int state){
 };
 
 DFA outputAcceptNoString(void){
-    return DFA(acceptNoStringISV, alphabet0_1, acceptNoStringTF, -1, acceptNoStringISA);;
+    return DFA(acceptNoStringISV, alphabet0_1, acceptNoStringTF, 0, acceptNoStringISA);;
 }
 
 
@@ -144,7 +144,9 @@ DFA outputDFA4(void){
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
                 if (currentState == 0 && charcterInAlphabet == 0) return 1;
-                else if (currentState == 1 && charcterInAlphabet == 1) return 2;
+                else if (currentState == 1)
+                    if (charcterInAlphabet == 1) return 2;
+                    else return 1;
                 else if (currentState == 2) return 2;
                 else return 0;
             },
@@ -156,22 +158,19 @@ DFA outputDFA4(void){
 };
 
 //************************************************************
-// DFA Sample 5 - accepts only strings that starts with 1 and ends with 1
+// DFA Sample 5 - accepts only strings with an odd number of 1s
 //************************************************************
 DFA outputDFA5(void){
     DFA temp(
-            [](int state) { return state >= 0 && state <= 3; },
+            [](int state) { return state >= 0 && state <= 1; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
-                if (currentState == 0 && charcterInAlphabet == 1) return 1;
-                else if (currentState == 1)
-                    if (charcterInAlphabet == 0) return 1;
-                    else return 2;
-                else if (currentState == 2) return 1;
-                else return 3; // State 3 - Dead zone
+                if (charcterInAlphabet == 0) return currentState;
+                else if (currentState == 0) return 1;
+                else return 0;
             },
             0,
-            [](int state){return state == 2;}
+            [](int state){return state == 1;}
     );
 
     return temp;
@@ -192,7 +191,9 @@ DFA outputDFA6(void){
                     if (charcterInAlphabet == 0) return 1;
                     else return 2;
                 // State 2 - If theres more, go back to state 1
-                else if (currentState == 2) return 1;
+                else if (currentState == 2)
+                    if (charcterInAlphabet == 1) return 2;
+                    else return 1;
                 // State 3 - Dead zone
                 else return 3;
             },

@@ -17,7 +17,7 @@ void permutation(int temp[], int finalArray[], int& finalArraySize, int arraySiz
         
         permutationNumber += 1;
         
-        //Print all elements in array
+        //Prints the nth element in array
         if (n == permutationNumber) {
             finalArraySize = pos;
             std::cout << permutationNumber <<  ": ";
@@ -36,7 +36,7 @@ void permutation(int temp[], int finalArray[], int& finalArraySize, int arraySiz
     }
 }
 
-
+//  Task #3: Function that outputs
 std::list<int> getNthPermutation(std::vector<int> alphabet, int n){
     
     // If n = 0, return a empty list;

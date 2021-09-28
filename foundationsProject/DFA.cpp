@@ -23,18 +23,3 @@ bool doesStringFollowDFA(DFA dfa, std::list<int> string){
     }
     return dfa.isAcceptedState(currentState);
 }
-
-void traceStringInDFA(DFA dfa, std::list<int> string){
-    int currentState = dfa.startState;
-    std::cout << currentState;
-    
-    for (int const &c: string) {
-        if (!(dfa.isStateValid(currentState))) {
-            std::cout << std::endl << c << " - not part of alphabet TRACE ENDS" << std::endl;
-            return;
-        }
-        currentState = dfa.transitionFunction(currentState, c);
-        std::cout << " -> " << currentState;
-    }
-    std::cout << std::endl;
-}

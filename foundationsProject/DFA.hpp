@@ -13,7 +13,7 @@
 #include <list>
 #include <functional>
 
-
+// Task #4:
 class DFA{
 public:
     // Constructor
@@ -40,9 +40,8 @@ public:
     std::function<bool(int state)> isAcceptedState;
 };
 
-// Bool function that 
+// Bool function that sees weither the inputted string is accepted by the DFA
 bool doesStringFollowDFA(DFA dfa, std::list<int> string);
 
-void traceStringInDFA(DFA dfa, std::list<int> string);
 
 #endif /* DFA_hpp */
