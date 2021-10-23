@@ -11,8 +11,8 @@ std::vector<int> alphabet0 {0};
 std::vector<int> alphabet0_1 {0,1};
 
 // outputs a DFA that will only accept a string of only that one alphabet character
-DFA generateOneCharDFA(int onlyAlphabet){
-    DFA results(
+DFA<int> generateOneCharDFA(int onlyAlphabet){
+    DFA<int> results(
             [](int state) { return state >= 0 && state <= 2; },
             alphabet0_1,
             [onlyAlphabet](int currentState, int charcterInAlphabet) {
@@ -47,8 +47,8 @@ bool acceptNoStringISA(int state){
     return false;
 };
 
-DFA outputAcceptNoString(void){
-    return DFA(acceptNoStringISV, alphabet0_1, acceptNoStringTF, 0, acceptNoStringISA);;
+DFA<int> outputAcceptNoString(void){
+    return DFA<int>(acceptNoStringISV, alphabet0_1, acceptNoStringTF, 0, acceptNoStringISA);;
 }
 
 
@@ -76,15 +76,15 @@ bool acceptEmptyStringISA(int state){
     }
 };
 
-DFA outputAcceptEmptyString(void){
-    return DFA(acceptEmptyStringISV, alphabet0_1, acceptEmptyStringTF, 0, acceptEmptyStringISA);
+DFA<int> outputAcceptEmptyString(void){
+    return DFA<int>(acceptEmptyStringISV, alphabet0_1, acceptEmptyStringTF, 0, acceptEmptyStringISA);
 };
 
 //************************************************************
 // DFA Sample 1 - accepts only strings that start with "1"
 //************************************************************
-DFA outputDFA1(void){
-    DFA temp(
+DFA<int> outputDFA1(void){
+    DFA<int> temp(
             [](int state) { return state >= 0 && state <= 2; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
@@ -102,8 +102,8 @@ DFA outputDFA1(void){
 //************************************************************
 // DFA Sample 2 - accepts only strings that end with "1"
 //************************************************************
-DFA outputDFA2(void){
-    DFA temp(
+DFA<int> outputDFA2(void){
+    DFA<int> temp(
             [](int state) { return state >= 0 && state <= 1; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
@@ -120,8 +120,8 @@ DFA outputDFA2(void){
 //************************************************************
 // DFA Sample 3 - accepts only strings of all "0"
 //************************************************************
-DFA outputDFA3(void){
-    DFA temp(
+DFA<int> outputDFA3(void){
+    DFA<int> temp(
             [](int state) { return state >= 0 && state <= 2; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
@@ -138,8 +138,8 @@ DFA outputDFA3(void){
 //************************************************************
 // DFA Sample 4 - accepts only strings with "01" in it
 //************************************************************
-DFA outputDFA4(void){
-    DFA temp(
+DFA<int> outputDFA4(void){
+    DFA<int> temp(
             [](int state) { return state >= 0 && state <= 2; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
@@ -160,8 +160,8 @@ DFA outputDFA4(void){
 //************************************************************
 // DFA Sample 5 - accepts only strings with an odd number of 1s
 //************************************************************
-DFA outputDFA5(void){
-    DFA temp(
+DFA<int> outputDFA5(void){
+    DFA<int> temp(
             [](int state) { return state >= 0 && state <= 1; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
@@ -179,8 +179,8 @@ DFA outputDFA5(void){
 //************************************************************
 // DFA Sample 6 - accepts only strings that starts with 1 and ends with 1
 //************************************************************
-DFA outputDFA6(void){
-    DFA temp(
+DFA<int> outputDFA6(void){
+    DFA<int> temp(
             [](int state) { return state >= 0 && state <= 3; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
@@ -207,10 +207,10 @@ DFA outputDFA6(void){
 //************************************************************
 // DFA Sample 7 - accepts only strings with an even number of 0s and 1s
 //************************************************************
-DFA outputDFA7(void){
+DFA<int> outputDFA7(void){
     //  (0) 1
     //   3  2
-    DFA temp(
+    DFA<int> temp(
             [](int state) { return state >= 0 && state <= 3; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
@@ -235,10 +235,10 @@ DFA outputDFA7(void){
 //************************************************************
 // DFA Sample 8 - accepts the strings with an even number of leading 0's followed by single 1
 //************************************************************
-DFA outputDFA8(void){
+DFA<int> outputDFA8(void){
     //   0  1
     //  (3) 2
-    DFA temp(
+    DFA<int> temp(
             [](int state) { return state >= 0 && state <= 3; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
@@ -258,10 +258,10 @@ DFA outputDFA8(void){
 //************************************************************
 // DFA Sample 9 - accepting strings ending with ‘00’ over input alphabets
 //************************************************************
-DFA outputDFA9(void){
+DFA<int> outputDFA9(void){
     //  (0) 1
     //   3  2
-    DFA temp(
+    DFA<int> temp(
             [](int state) { return state >= 0 && state <= 2; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
@@ -281,8 +281,8 @@ DFA outputDFA9(void){
 //************************************************************
 // DFA Sample 10 - accepting strings starting with ‘11’
 //************************************************************
-DFA outputDFA10(void){
-    DFA temp(
+DFA<int> outputDFA10(void){
+    DFA<int> temp(
             [](int state) { return state >= 0 && state <= 3; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
@@ -303,8 +303,8 @@ DFA outputDFA10(void){
 //************************************************************
 // DFA Sample 11 - accepting strings over the length of 3
 //************************************************************
-DFA outputDFA11(void){
-    DFA temp(
+DFA<int> outputDFA11(void){
+    DFA<int> temp(
             [](int state) { return state >= 0 && state <= 4; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {
@@ -321,8 +321,8 @@ DFA outputDFA11(void){
 //************************************************************
 // DFA Sample 12 - accepting strings less or equal to the length of 3
 //************************************************************
-DFA outputDFA12(void){
-    DFA temp(
+DFA<int> outputDFA12(void){
+    DFA<int> temp(
             [](int state) { return state >= 0 && state <= 4; },
             alphabet0_1,
             [](int currentState, int charcterInAlphabet) {

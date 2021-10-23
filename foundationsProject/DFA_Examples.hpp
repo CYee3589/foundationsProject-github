@@ -17,35 +17,39 @@
 #include <string>
 
 // Task #7: Function that ouputs a DFA that only accepts strings of only that alphabet int
-DFA generateOneCharDFA(int onlyAlphabet);
+template<typename T>
+DFA<T> generateOneCharDFA(int onlyAlphabet);
 
 // functions and constructor for acceptNoString DFA
 bool acceptNoStringISV(int state);
 int acceptNoStringTF(int currentState, int charcterInAlphabet);
 bool acceptNoStringISA(int state);
+
 // Task #5: A DFA that accepts no strings
-DFA outputAcceptNoString(void);
+template<typename T>
+DFA<T> outputAcceptNoString(void);
 
 // functions and constructor for acceptEmptyString DFA
 bool acceptEmptyStringISV(int state);
 int acceptEmptyStringTF(int currentState, int alphabetCharcter);
 bool acceptEmptyStringISA(int state);
+
 // Task #6: A DFA that only accepts the empty string
-DFA outputAcceptEmptyString(void);
+DFA<int> outputAcceptEmptyString(void);
 
 // DFA Examples
-DFA outputDFA1(void);
-DFA outputDFA2(void);
-DFA outputDFA3(void);
-DFA outputDFA4(void);
-DFA outputDFA5(void);
-DFA outputDFA6(void);
-DFA outputDFA7(void);
-DFA outputDFA8(void);
-DFA outputDFA9(void);
-DFA outputDFA10(void);
-DFA outputDFA11(void);
-DFA outputDFA12(void);
+DFA<int> outputDFA1(void);
+DFA<int> outputDFA2(void);
+DFA<int> outputDFA3(void);
+DFA<int> outputDFA4(void);
+DFA<int> outputDFA5(void);
+DFA<int> outputDFA6(void);
+DFA<int> outputDFA7(void);
+DFA<int> outputDFA8(void);
+DFA<int> outputDFA9(void);
+DFA<int> outputDFA10(void);
+DFA<int> outputDFA11(void);
+DFA<int> outputDFA12(void);
 
 
 
