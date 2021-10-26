@@ -28,28 +28,17 @@ DFA<int> generateOneCharDFA(int onlyAlphabet){
 };
 
 
-//************************************************************
-// acceptNoString parameter functions
-//************************************************************
-bool acceptNoStringISV(int state){
-    if(state == 0){
-        return true;
-    } else {
-        return false;
-    }
-};
-
-int acceptNoStringTF(int currentState, int alphabetCharcter){
-    return 0;
-};
-
-bool acceptNoStringISA(int state){
-    return false;
-};
-
 DFA<int> outputAcceptNoString(void){
-    return DFA<int>(acceptNoStringISV, alphabet0_1, acceptNoStringTF, 0, acceptNoStringISA);;
-}
+    return DFA<int>(
+            [](int state) { return state == 0;},
+            alphabet0,
+            [](int currentState, int charcterInAlphabet) {
+                return currentState;
+            },
+            0,
+            [](int state){return false;}
+    );
+};
 
 
 //************************************************************
@@ -331,6 +320,63 @@ DFA<int> outputDFA12(void){
             },
             0,
             [](int state){return state <= 3;}
+    );
+
+    return temp;
+};
+
+//************************************************************
+// DFA Sample 13 - only accepts string odd number of charcters
+//************************************************************
+DFA<int> outputDFA13(void){
+    DFA<int> temp(
+            [](int state) { return state == 0 || state == 1; },
+            alphabet0_1,
+            [](int currentState, int charcterInAlphabet) {
+                if (currentState == 0) return 1;
+                else return 0;
+            },
+            0,
+            [](int state){return state == 1;}
+    );
+
+    return temp;
+};
+
+
+//************************************************************
+// DFA Sample 14 - only accepts string even number of charcters
+//************************************************************
+DFA<int> outputDFA14(void){
+    DFA<int> temp(
+            [](int state) { return state == 0 || state == 1; },
+            alphabet0_1,
+            [](int currentState, int charcterInAlphabet) {
+                if (currentState == 0) return 1;
+                else return 0;
+            },
+            0,
+            [](int state){return state == 0;}
+    );
+
+    return temp;
+};
+
+
+//************************************************************
+// DFA Sample 15 - only accepts string with a length of 1
+//************************************************************
+DFA<int> outputDFA15(void){
+    DFA<int> temp(
+            [](int state) { return state >= 0 || state <= 2; },
+            alphabet0_1,
+            [](int currentState, int charcterInAlphabet) {
+                if (currentState == 0) return 1;
+                if (currentState == 1) return 2;
+                else return 2;
+            },
+            0,
+            [](int state){return state == 1;}
     );
 
     return temp;

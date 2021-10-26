@@ -18,34 +18,8 @@
 #include <utility>
 #include <stack>
 #include <algorithm>
-#include <optional>
 
-
-//class DFA{
-//public:
-//    // Constructor
-//    DFA(std::function<bool(int state)> initIsStateValid,
-//        std::vector<int> initAlphabet,
-//        std::function<int(int currentState, int charcterInAlphabet)> initTransitionFunction,
-//        int initStartState,
-//        std::function<bool(int state)> initIsAcceptedState):
-//     isStateValid(initIsStateValid), alphabet(initAlphabet), transitionFunction(initTransitionFunction), startState(initStartState), isAcceptedState(initIsAcceptedState) {};
-//
-//    //Bool function that checks if the inputed state is valid
-//    std::function<bool(int state)> isStateValid;
-//
-//    // The alphabet set being used for this DFA
-//    std::vector<int> alphabet;
-//
-//    //Really long if else function that outputs the next state given the currentstate and the currrentAlphabet char
-//    std::function<int(int currentState, int charcterInAlphabet)> transitionFunction;
-//
-//    // the starting state
-//    int startState;
-//
-//    // Bool function that checks if the inputed state is accepted
-//    std::function<bool(int state)> isAcceptedState;
-//};
+const std::list<int> failcase = {-9999};
 
 template<typename T>
 class DFA{
@@ -75,19 +49,8 @@ public:
     std::function<bool(T state)> isAcceptedState;
 };
 
-template<typename T>
-bool doesStringFollowDFA(DFA<T> dfa, std::list<int> string){
-    T currentState = dfa.startState;
-    
-    for (int const &c: string) {
-        if (!(dfa.isStateValid(currentState))) {
-            return false;
-        }
-        currentState = dfa.transitionFunction(currentState, c);
-    }
-    return dfa.isAcceptedState(currentState);
-}
 
+// Function that returns a string that fits with inputed DFA for returns false otherwise
 template<typename T>
 //std::optional<std::list<int>> generateViableString(DFA<T> dfa){
 std::list<int> generateViableString(DFA<T> dfa){
@@ -96,15 +59,16 @@ std::list<int> generateViableString(DFA<T> dfa){
     std::list<int> output;
     
     stateChain.push(dfa.startState);
+    visitedStates.push_back(dfa.startState);
     
     while (!(stateChain.empty())) {
         
         //Check if DFA will accept the output string. If so, return output
         if(doesStringFollowDFA(dfa, output)){
             return output;
-//            return std::optional<std::list<int>>(std::in_place, output);
         }
         
+        //Check every element in the alphabet
         for (int const &c: dfa.alphabet) {
             // Load the next state given the current state(top of stateChain) and element from alphabet(c)
             T temp = dfa.transitionFunction(stateChain.top(), c);
@@ -120,21 +84,15 @@ std::list<int> generateViableString(DFA<T> dfa){
             // Check if c is the last element in the DFA alphabet. If so, pop from stack and output
             if (dfa.alphabet.back() == c) {
                 stateChain.pop();
-                output.pop_back();
+                if (!output.empty()) {
+                    output.pop_back();
+                }
             }
+            
         }
     }
     
-//    std::cout << "DFA doens't accept anything" << std::endl;
-//    return std::nullopt;
-    return output;
-}
-
-//template<typename T>
-std::optional<int> create(bool b) {
-    if (b)
-        return 1234;
-    return std::nullopt;
+    return failcase;
 }
 
 
@@ -144,7 +102,7 @@ DFA<T> generateComplement(DFA<T> dfa){
         [dfa](T state){return dfa.isStateValid(state);},
         dfa.alphabet,
         [dfa](T currentState, int charcterInAlphabet){return dfa.transitionFunction(currentState, charcterInAlphabet);},
-        0,
+        dfa.startState,
         [dfa](T state){return !(dfa.isAcceptedState(state));}
     };
 }
@@ -209,5 +167,21 @@ DFA<std::pair<A, B>> generateIntercept(DFA<A> dfa1, DFA<B> dfa2){
             {return dfa1.isAcceptedState(qi.first) && dfa2.isAcceptedState(qi.second);}
     );
 }
+
+template<typename A, typename B>
+bool isASubsetOfB(DFA<A> dfa1, DFA<B> dfa2){
+    //std::list<int> failcase = {-9999};
+    if (generateViableString(generateIntercept(generateComplement(dfa2), dfa1)) == failcase) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+template<typename A, typename B>
+bool isAEqualityOfB(DFA<A> dfa1, DFA<B> dfa2){
+    return isASubsetOfB(dfa1, dfa2) && isASubsetOfB(dfa2, dfa1);
+}
+
 
 #endif /* DFA_hpp */

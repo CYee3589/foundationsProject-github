@@ -10,19 +10,27 @@
 
 #include "DFA.hpp"
 
-#include <stdio.h>
-//#include <optional>
+void boolCounter(std::vector<bool> examples);
 
+template<typename T>
+std::vector<T> combine2Vectors(std::vector<T> vec1, std::vector<T> vec2){
+    std::vector<T> newVec(vec1);
+    newVec.insert(newVec.end(), vec2.begin(), vec2.end());
+    return newVec;
+}
 
-//template<typename T>
-//void traceStringInDFA(DFA<T> dfa, std::list<int> string);
-//
-//template<typename T>
-//void testingDFA(DFA<T> subject, int testNumber, std::vector<std::list<int>> correctCases, std::vector<std::list<int>> incorrectCases);
-//
-//template<typename T>
-//void testingDFA2(DFA<T> subject, int testNumber, std::vector<std::list<int>> correctCases, std::vector<std::list<int>> incorrectCases);
-
+template<typename T>
+bool doesStringFollowDFA(DFA<T> dfa, std::list<int> string){
+    T currentState = dfa.startState;
+    
+    for (int const &c: string) {
+        if (!(dfa.isStateValid(currentState))) {
+            return false;
+        }
+        currentState = dfa.transitionFunction(currentState, c);
+    }
+    return dfa.isAcceptedState(currentState);
+}
 
 template<typename T>
 void traceStringInDFA(DFA<T> dfa, std::list<int> string){
@@ -143,10 +151,7 @@ void testingDFA(DFA<T> subject, int testNumber, std::vector<std::list<int>> corr
 
 }
 
-//template<typename T>
-//std::optional<std::list<int>> generateViableString(DFA<T> dfa){
-//
-//}
+
 
 
 
