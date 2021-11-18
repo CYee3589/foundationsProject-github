@@ -101,21 +101,21 @@ int main(int argc, const char * argv[]) {
 
     std::vector<bool> task27Fail{
         Oracle(nfa1, {0,1,1,3}, NFA1trace4, false),
-        Oracle(nfa2, {0,0,1}, NFA2trace3, false),
-        Oracle(nfa3, {0,1,0,1,1,0,0}, NFA3trace4, false),
-        Oracle(nfa4, {0,0,1}, NFA4trace1, false),
+        Oracle(nfa2, {0,1,1,1,1,1}, NFA2trace3, false),
+        Oracle(nfa3, {0,0,1}, NFA3trace3, false),
+        Oracle(nfa4, {0,3}, NFA4trace1, false),
         Oracle(nfa5, {1,1,1}, NFA5trace1, false),
-        Oracle(nfa6, {1,1,0,3}, NFA6trace3, false),
-        Oracle(nfa7, {0,1,1,1}, NFA7trace10, false),
-        Oracle(nfa8, {0,3,0,0}, NFA8trace1, false),
+        Oracle(nfa6, {1,1,0,3}, NFA6trace6, false),
+        Oracle(nfa7, {0,1,1,1}, NFA7trace2, false),
+        Oracle(nfa8, {0,3,0,0}, NFA8trace3, false),
         Oracle(nfa9, {1,0,1,1}, NFA9trace2, false),
         Oracle(nfa10, {0,0,0,1}, NFA10trace3, false),
-        Oracle(nfa11, {1,0,1}, NFA11trace1, false),
-        Oracle(nfa12, {1,1}, NFA12trace1, false),
+        Oracle(nfa11, {1,1,2}, NFA11trace5, false),
+        Oracle(nfa12, {1,0,0,0}, NFA12trace4, false),
     };
 
 
-    boolCounter(task27Pass);
+//    boolCounter(task27Pass);
     boolCounter(task27Fail);
 
      
@@ -300,7 +300,7 @@ int main(int argc, const char * argv[]) {
     };
         
 
-    boolCounter(task31Pass);
+//    boolCounter(task31Pass);
     
     
     //********************************************************************************************************
@@ -323,7 +323,7 @@ int main(int argc, const char * argv[]) {
         
     };
     
-    boolCounter(task33Pass);
+//    boolCounter(task33Pass);
 
 
     return 0;
