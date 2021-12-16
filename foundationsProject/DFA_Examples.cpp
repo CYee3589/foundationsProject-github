@@ -381,3 +381,40 @@ DFA<int> outputDFA15(void){
 
     return temp;
 };
+
+//************************************************************
+// DFA Sample 16 - accepts only strings of all "1"s
+//************************************************************
+DFA<int> outputDFA16(void){
+    DFA<int> temp(
+            [](int state) { return state >= 0 && state <= 2; },
+            alphabet0_1,
+            [](int currentState, int charcterInAlphabet) {
+                if (currentState == 2 || charcterInAlphabet == 0) return 2;
+                else return 1;
+            },
+            0,
+            [](int state){return state == 1;}
+    );
+
+    return temp;
+};
+
+//************************************************************
+// DFA Sample 17 - returns strings with 110 in it
+//************************************************************
+DFA<int> outputDFA17(void){
+    DFA<int> temp(
+            [](int state) { return state >= 0 && state <= 3; },
+            {0,1},
+            [](int currentState, int charcterInAlphabet) {
+                if (currentState == 0 && charcterInAlphabet == 1) return 1;
+                else if (currentState == 1 && charcterInAlphabet == 1) return 2;
+                else if (currentState == 2 && charcterInAlphabet == 0) return 2;
+                else return 3;
+            },
+            0,
+            [](int state){return state == 2;}
+    );
+    return temp;
+}

@@ -151,7 +151,7 @@ void testingDFA(DFA<T> subject, int testNumber, std::vector<std::list<int>> corr
 
 }
 
-
+extern std::vector<bool> real1yLongTests;
 
 
 

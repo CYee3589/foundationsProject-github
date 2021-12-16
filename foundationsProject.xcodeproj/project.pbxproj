@@ -16,6 +16,10 @@
 		85F0F843273AC47D00DAB7F0 /* NFA_examples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85F0F841273AC47D00DAB7F0 /* NFA_examples.cpp */; };
 		85F0F849273EF3F700DAB7F0 /* trace_tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85F0F847273EF3F600DAB7F0 /* trace_tree.cpp */; };
 		85F0F84C274185AB00DAB7F0 /* NFA_testing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85F0F84A274185AB00DAB7F0 /* NFA_testing.cpp */; };
+		85F0F84F275D7E4C00DAB7F0 /* RE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85F0F84D275D7E4C00DAB7F0 /* RE.cpp */; };
+		85F0F852275D850700DAB7F0 /* RE_examples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85F0F850275D850700DAB7F0 /* RE_examples.cpp */; };
+		85F0F855275D851600DAB7F0 /* RE_testing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85F0F853275D851600DAB7F0 /* RE_testing.cpp */; };
+		85F0F8582761F77700DAB7F0 /* GNFA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85F0F8562761F77700DAB7F0 /* GNFA.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +53,14 @@
 		85F0F848273EF3F700DAB7F0 /* trace_tree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = trace_tree.hpp; sourceTree = "<group>"; };
 		85F0F84A274185AB00DAB7F0 /* NFA_testing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NFA_testing.cpp; sourceTree = "<group>"; };
 		85F0F84B274185AB00DAB7F0 /* NFA_testing.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NFA_testing.hpp; sourceTree = "<group>"; };
+		85F0F84D275D7E4C00DAB7F0 /* RE.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RE.cpp; sourceTree = "<group>"; };
+		85F0F84E275D7E4C00DAB7F0 /* RE.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RE.hpp; sourceTree = "<group>"; };
+		85F0F850275D850700DAB7F0 /* RE_examples.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RE_examples.cpp; sourceTree = "<group>"; };
+		85F0F851275D850700DAB7F0 /* RE_examples.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RE_examples.hpp; sourceTree = "<group>"; };
+		85F0F853275D851600DAB7F0 /* RE_testing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RE_testing.cpp; sourceTree = "<group>"; };
+		85F0F854275D851600DAB7F0 /* RE_testing.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RE_testing.hpp; sourceTree = "<group>"; };
+		85F0F8562761F77700DAB7F0 /* GNFA.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GNFA.cpp; sourceTree = "<group>"; };
+		85F0F8572761F77700DAB7F0 /* GNFA.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GNFA.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +110,14 @@
 				85F0F84B274185AB00DAB7F0 /* NFA_testing.hpp */,
 				85F0F847273EF3F600DAB7F0 /* trace_tree.cpp */,
 				85F0F848273EF3F700DAB7F0 /* trace_tree.hpp */,
+				85F0F84D275D7E4C00DAB7F0 /* RE.cpp */,
+				85F0F84E275D7E4C00DAB7F0 /* RE.hpp */,
+				85F0F850275D850700DAB7F0 /* RE_examples.cpp */,
+				85F0F851275D850700DAB7F0 /* RE_examples.hpp */,
+				85F0F853275D851600DAB7F0 /* RE_testing.cpp */,
+				85F0F854275D851600DAB7F0 /* RE_testing.hpp */,
+				85F0F8562761F77700DAB7F0 /* GNFA.cpp */,
+				85F0F8572761F77700DAB7F0 /* GNFA.hpp */,
 			);
 			path = foundationsProject;
 			sourceTree = "<group>";
@@ -158,6 +178,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85F0F852275D850700DAB7F0 /* RE_examples.cpp in Sources */,
+				85F0F84F275D7E4C00DAB7F0 /* RE.cpp in Sources */,
 				851345B227022B0C00858B1B /* DFA_testing.cpp in Sources */,
 				8573A47C26F380BD00091050 /* DFA.cpp in Sources */,
 				85F0F84C274185AB00DAB7F0 /* NFA_testing.cpp in Sources */,
@@ -167,6 +189,8 @@
 				85F0F849273EF3F700DAB7F0 /* trace_tree.cpp in Sources */,
 				85F0F843273AC47D00DAB7F0 /* NFA_examples.cpp in Sources */,
 				85E2293926E6AD6C0091B411 /* main.cpp in Sources */,
+				85F0F855275D851600DAB7F0 /* RE_testing.cpp in Sources */,
+				85F0F8582761F77700DAB7F0 /* GNFA.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

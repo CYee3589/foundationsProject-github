@@ -135,12 +135,17 @@ bool Backtrack(NFA<T> nfa, std::list<int> string){
     std::set<T> tempCurrentStates;
 
     currentStates.insert(nfa.startState);
+    
+    // Check if the starting state has any epsilon elements
+    std::set<T> firstEpislon = nfa.epislonFunction(nfa.startState);
+    currentStates.insert(firstEpislon.begin(), firstEpislon.end());
+    
     std::list<int> tracker = string;
     
     // Check if the starting state is accepted first
-    if (nfa.isAcceptedState(nfa.startState)) {
-        return true;
-    }
+//    if (nfa.isAcceptedState(nfa.startState)) {
+//        return true;
+//    }
     
     while(!(tracker.empty())){
         int temp = tracker.front();
@@ -167,7 +172,7 @@ bool Backtrack(NFA<T> nfa, std::list<int> string){
     }
     
     // After when loop is done, check through the states in currentStates to see if any of them are accepting
-    for (int const &d: currentStates) {
+    for (T const &d: currentStates) {
         if (nfa.isAcceptedState(d)) {
             return true;
         }

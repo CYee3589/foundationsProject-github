@@ -289,4 +289,7 @@ extern std::list<traceTreeBranch<int>> NFA12traceTree4;
 extern std::list<traceTreeBranch<int>> NFA12traceTree5;
 extern std::list<traceTreeBranch<int>> NFA12traceTree6;
 
+// NFA 13- Accepts strings that have 0s over 1s
+NFA<int> outputNFA13(void);
+
 #endif /* NFA_examples_hpp */

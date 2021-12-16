@@ -505,12 +505,18 @@ NFA<int> outputNFA6(void){
             [](int state) { return state >= 0 && state <= 3; },
             DAlphabet0_1,
             [](int currentState, int charcterInAlphabet) -> std::set<int> {
-                if (charcterInAlphabet == 0)
-                    if (currentState == 0) return {0,2};
-                    if (currentState == 2) return {3};
-                else if (charcterInAlphabet ==  1)
-                    if (currentState == 0) return {0,1};
-                    if (currentState == 1) return {3};
+                if (charcterInAlphabet == 0 && currentState == 0) return {0,2};
+                if (charcterInAlphabet == 0 && currentState == 2) return {3};
+//                if (charcterInAlphabet == 0)
+//                    if (currentState == 0) return {0,2};
+//                    if (currentState == 2) return {3};
+//                    if (currentState == 1 || currentState == 3) return {};
+                if (charcterInAlphabet == 1 && currentState == 0) return {0,1};
+                if (charcterInAlphabet == 1 && currentState == 1) return {3};
+//                else if (charcterInAlphabet ==  1)
+//                    if (currentState == 0) return {0,1};
+//                    if (currentState == 1) return {3};
+//                    if (currentState == 2 || currentState == 3) return {};
                 else return {};
             },
             [](int currentState) -> std::set<int> {
@@ -1111,3 +1117,22 @@ std::list<traceTreeBranch<int>> NFA12traceTree6 =
         traceTreeBranch<int>(2,{1},3,3,false),
         traceTreeBranch<int>(3,{},3,3,false),
     };
+
+NFA<int> outputNFA13(void){
+    NFA<int> temp(
+            [](int state) { return state >= 0 && state <= 2; },
+            {0,1},
+            [](int currentState, int charcterInAlphabet) -> std::set<int> {
+                if (currentState == 0 && charcterInAlphabet == 0) return {1};
+                if (currentState == 1 && charcterInAlphabet == 0) return {1};
+                if (currentState == 1 && charcterInAlphabet == 1) return {1,2};
+                else return {};
+            },
+            [](int currentState) -> std::set<int> {
+                return {};
+            },
+            0,
+            [](int state){return state == 2;}
+                  );
+    return temp;
+}

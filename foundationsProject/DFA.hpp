@@ -8,6 +8,8 @@
 #define DFA_hpp
 
 #include "permutations.hpp"
+//#include "RE.hpp"
+
 
 #include <stdio.h>
 
@@ -178,9 +180,14 @@ bool isASubsetOfB(DFA<A> dfa1, DFA<B> dfa2){
     }
 }
 
+//template<typename A, typename B>
+//bool isAEqualityOfB(DFA<A> dfa1, DFA<B> dfa2){
+//    return isASubsetOfB(dfa1, dfa2) && isASubsetOfB(dfa2, dfa1);
+//}
+
 template<typename A, typename B>
 bool isAEqualityOfB(DFA<A> dfa1, DFA<B> dfa2){
-    return isASubsetOfB(dfa1, dfa2) && isASubsetOfB(dfa2, dfa1);
+    return true;
 }
 
 

@@ -53,6 +53,11 @@ DFA<int> outputDFA12(void);
 DFA<int> outputDFA13(void);
 DFA<int> outputDFA14(void);
 DFA<int> outputDFA15(void);
+DFA<int> outputDFA16(void);
+DFA<int> outputDFA17(void);
+
+
+
 
 
 

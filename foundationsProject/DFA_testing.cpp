@@ -18,4 +18,6 @@ void boolCounter(std::vector<bool> examples){
     }
     
     std::cout << "Results for BoolCounter: " << numberOfTrue << "/" << counter << std::endl;
+    
+    
 }
